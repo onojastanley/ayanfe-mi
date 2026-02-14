@@ -1,127 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Day Message</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Poppins:wght@400;700&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💖</title>
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(to bottom, #ffcccc, #ff99cc);
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 20px;
-            overflow-x: hidden;
-        }
-        .container {
-            background-color: white;
-            max-width: 90%;
-            width: 600px;
-            padding: 20px;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            position: relative;
-            border-left: 8px solid red;
-            line-height: 1.8;
-            background: repeating-linear-gradient(white 0px, white 28px, red 29px);
-        }
-        .image-box {
-            width: 100%;
-            max-height: 300px;
-            background: #f8d7da;
-            border: 3px solid red;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-        .image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        h1 {
-            font-size: 24px;
-            color: red;
-            text-align: center;
-            font-family: 'Pacifico', cursive;
-            text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5);
-        }
-        p {
-            font-size: 16px;
-            color: #333;
-            text-align: center;
-        }
-        .balloon {
-            position: absolute;
-            width: 40px;
-            height: 60px;
-            background: red;
-            border-radius: 50%;
-            animation: float 5s infinite ease-in-out;
-        }
-        .balloon:before {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            width: 10px;
-            height: 10px;
-            background: red;
-            clip-path: polygon(50% 100%, 0 0, 100% 0);
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-10vh); opacity: 0; }
-        }
-        @media (max-width: 768px) {
-            .container {
-                max-width: 100%;
-                padding: 15px;
-            }
-            h1 {
-                font-size: 20px;
-            }
-            p {
-                font-size: 14px;
-            }
-        }
-    </style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        color: white;
+        text-align: center;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        padding: 40px;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        width: 90%;
+        max-width: 500px;
+        position: relative;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .buttons {
+        margin-top: 20px;
+    }
+
+    button {
+        padding: 12px 28px;
+        margin: 15px;
+        border: none;
+        border-radius: 30px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #yesBtn {
+        background: #ff4d6d;
+        color: white;
+        box-shadow: 0 5px 20px rgba(255, 77, 109, 0.6);
+    }
+
+    #yesBtn:hover {
+        transform: scale(1.1);
+    }
+
+    #noBtn {
+        background: #444;
+        color: white;
+        position: absolute;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    img {
+        width: 220px;
+        border-radius: 20px;
+        margin-top: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    .message {
+        font-size: 20px;
+        margin-top: 15px;
+        line-height: 1.5;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes float {
+        0% {transform: translateY(0);}
+        50% {transform: translateY(-8px);}
+        100% {transform: translateY(0);}
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: pink;
+        transform: rotate(45deg);
+        animation: rise 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: pink;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -10px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: -10px;
+        top: 0;
+    }
+
+    @keyframes rise {
+        0% {bottom: -10px; opacity: 1;}
+        100% {bottom: 100vh; opacity: 0;}
+    }
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="image-box">
-            <img src="chioma.jpg" alt="Chioma">
-        </div>
-        <h1>💖 Valentine's Day Message to My Queen 💖</h1>
-        <p><strong>My Love, Chioma,</strong></p>
-        <p>Happy Valentine’s Day, my heartbeat! Every moment with you is a beautiful melody, a love song that plays endlessly in my heart. You are my joy, my peace, and my greatest blessing.</p>
-        <p>Your love fills my world with warmth, laughter, and endless happiness. I cherish every smile, every touch, and every memory we create together. You are my forever Valentine, and I am grateful for the love we share.</p>
-        <p><strong>I love you. ❤️</strong></p>
-        <p>Yours always,</p>
-        <p><strong>Stanley</strong></p>
+
+<div class="container" id="mainContent">
+    <h1>Will You Be My Valentine? 💕</h1>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
+        <button id="noBtn" onmouseover="moveNo()">No 😢</button>
     </div>
-    <script>
-        function createBalloon() {
-            if (document.querySelectorAll('.balloon').length > 10) return; // Limit balloons
-            const balloon = document.createElement('div');
-            balloon.className = 'balloon';
-            balloon.style.left = Math.random() * 100 + 'vw';
-            balloon.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            document.body.appendChild(balloon);
-            setTimeout(() => balloon.remove(), 7000);
-        }
-        setInterval(createBalloon, 500);
-    </script>
+
+    <div id="valentineMessage" class="hidden">
+    <h1>You Said YES!!! 💘</h1>
+
+    <p class="message">
+        I’m really glad you said yes ❤️  
+        That honestly means a lot to me.
+        <br><br>
+        Being around you just feels easy and fun. You have this way of 
+        making things better without even trying — whether it’s your smile, 
+        your laugh, or just the way you talk about things you care about.
+        <br><br>
+        I’m looking forward to spending Valentine’s Day with you — 
+        making good memories, sharing laughs, and just enjoying the moment together.
+        <br><br>
+        Thank you for giving me this chance.  
+        I promise it’s going to be a really nice day 💕
+    </p>
+
+    <img src="herphoto.jpg" alt="My Valentine">
+</div>
+
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+
+    function moveNo() {
+        const container = document.querySelector(".container");
+        const maxX = container.offsetWidth - noBtn.offsetWidth;
+        const maxY = container.offsetHeight - noBtn.offsetHeight;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+    }
+
+    function sayYes() {
+        document.querySelector(".buttons").style.display = "none";
+        document.getElementById("valentineMessage").classList.remove("hidden");
+        createHearts();
+    }
+
+    function createHearts() {
+        setInterval(() => {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }, 300);
+    }
+</script>
+
 </body>
 </html>
+
