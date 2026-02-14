@@ -147,15 +147,19 @@
 
 <body>
 
-<div class="container" id="mainContent">
-    
+<!-- FIRST PAGE -->
+<div class="container" id="firstPage">
+    <h1>Will You Be My Valentine? 💕</h1>
 
     <div class="buttons">
         <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
         <button id="noBtn" onmouseover="moveNo()">No 😢</button>
     </div>
+</div>
 
-    <div id="valentineMessage" class="hidden">
+
+<!-- SECOND PAGE -->
+<div class="container hidden" id="secondPage">
     <h1>You Said YES!!! 💘</h1>
 
     <p class="message">
@@ -176,13 +180,12 @@
     <img src="herphoto.jpg" alt="My Valentine">
 </div>
 
-</div>
 
 <script>
     const noBtn = document.getElementById("noBtn");
 
     function moveNo() {
-        const container = document.querySelector(".container");
+        const container = document.getElementById("firstPage");
         const maxX = container.offsetWidth - noBtn.offsetWidth;
         const maxY = container.offsetHeight - noBtn.offsetHeight;
 
@@ -194,28 +197,16 @@
     }
 
     function sayYes() {
-        document.querySelector(".buttons").style.display = "none";
-        document.getElementById("valentineMessage").classList.remove("hidden");
-        createHearts();
-    }
-
-    function createHearts() {
-        setInterval(() => {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 6000);
-        }, 300);
+        document.getElementById("firstPage").classList.add("hidden");
+        document.getElementById("secondPage").classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 </script>
 
+
 </body>
 </html>
+
 
 
 
